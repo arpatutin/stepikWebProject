@@ -9,6 +9,11 @@ class Question(models.Model):
     rating = models.IntegerField()
     author = models.OneToOneField(User)
     likes = models.ManyToManyField(User)
+class QuestionManager(models.Manager):                                          
+    def new():                                                              
+            pass                                                            
+    def popular():                                                          
+            pass 
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField()
