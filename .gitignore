@@ -1,3 +1,12 @@
 ask/ask/__pycache__/
+ask/ask/__init__.pyc
+ask/ask/settings.pyc
+ask/ask/urls.pyc
 ask/qa/__pycache__/
+ask/qa/__init__.pyc
+ask/qa/admin.pyc
+ask/qa/models.pyc
+ask/qa/views.pyc
 ask/qa/migrations/__pycache__/
+ask/qa/migrations/0001_initial.py
+ask/qa/migrations/__init__.pyc
