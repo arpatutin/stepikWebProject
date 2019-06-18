@@ -25,6 +25,10 @@ SECRET_KEY = '^cjkvcpqb5&ub0=7=*$s%4_%1&*lh*s#3&60$b7a4*+_o@@qq+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+DEFAULT_INDEX_TABLESPACE = ' '
+
+DEFAULT_TABLESPACE = ' '
+
 ALLOWED_HOSTS = ['*']
 
 
