@@ -8,15 +8,14 @@ class Question(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
     author = models.OneToOneField(User)
-    likes = models.IntegerField(default=0)
+    likes = models.ManyToManyField(User, related_name="question_like_user")
 class QuestionManager(models.Manager):                                          
-    def new():                                                              
-            pass                                                            
-    def popular():                                                          
-            pass 
+    def new(self):
+        self.order_by("-added_at")
+    def popular(self):
+        self.order_by("-rating")
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
     question = models.ForeignKey(Question)
     author = models.OneToOneField(User)
-
