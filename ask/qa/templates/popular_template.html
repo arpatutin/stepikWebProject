@@ -1,0 +1,7 @@
+<ul>
+    {% for p  in paginator.page_range %}
+        <li>
+        <h2>{{ page.title }}</h2>
+        <a href="{{ paginator.baseurl }}{{ p.id }}">Read more...</a>
+    {% endfor %}
+</ul>
