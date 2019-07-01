@@ -18,4 +18,7 @@ ask/qa/migrations/0003_auto_20190620_1008.py
 ask/qa/migrations/0003_auto_20190620_1008.pyc
 ask/qa/tests.pyc
 ask/qa/migrations/0001_initial.pyc
+ask/ask/settings.pyc
+ask/ask/__init__.pyc
+ask/ask/urls.pyc
 ask/ask/wsgi.pyc
