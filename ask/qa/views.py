@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from django.core.paginator import Paginator, EmptyPage
 from django.core.exceptions import ObjectDoesNotExist
-from qa.models import Question
+from qa.models import Question, Answer
 
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
