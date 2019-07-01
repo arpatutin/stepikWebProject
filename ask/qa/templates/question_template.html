@@ -1,8 +1,7 @@
 <h1>{{ question.title }}</h1>
 <p>{{ question.text }}</p>
-<h4>Answers:</h4>
-{% for number in range %}
-<p>{{ answers[number].text }}</p>
-<h6>{{ answers[number].added_at }}</h6>
-<h4>{{ answers[number].author.username }}</h4>
+{% for answer in answers %}
+<p>{{ answer.text }}</p>
+<h6>{{ answer.added_at }}</h6>
+<h4>{{ answer.author }}</h4>
 {% endfor %}
