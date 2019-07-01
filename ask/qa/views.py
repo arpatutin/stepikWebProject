@@ -46,14 +46,13 @@ def popular(request):
     })
 def question(request, id):
     try:
-        quest = Question.objects.all()[int(qn)]
+        quest = Question.objects.all()[int(id)]
     except TypeError:
         return HttpResponseNotFound('')
-    answers = Answer.objects.all()
+    answers = Answer.objects.filter(question=quest.title)
     return render(request, "question_template.html", {
         'question': quest
-        'range': range(0, len(answers))
-        'answers': answers
+        'answers': answers[:]
     })
 
 
