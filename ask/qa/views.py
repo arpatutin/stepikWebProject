@@ -51,7 +51,7 @@ def question(request, id):
         return HttpResponseNotFound('')
     answers = Answer.objects.filter(question=quest.title)
     return render(request, "question_template.html", {
-        'question': quest
+        'question': quest,
         'answers': answers[:]
     })
 
