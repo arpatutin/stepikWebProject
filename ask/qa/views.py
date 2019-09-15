@@ -49,7 +49,7 @@ def question(request, id):
         quest = Question.objects.all()[int(id)]
     except TypeError:
         return HttpResponseNotFound('')
-    answers = Answer.objects.filter(question=quest.title)
+    answers = Answer.objects.filter(question=id)
     return render(request, "question_template.html", {
         'question': quest,
         'answers': answers[:]
