@@ -29,7 +29,7 @@ def new(request):
 def popular(request):
     qs = Question.objects.popular()
     limit = 10
-    global rmtext
+    global readmoretext
     global page_int
     try:
         page_int = int(request.GET.get('page'))
@@ -42,11 +42,11 @@ def popular(request):
     except EmptyPage:
         return HttpResponseNotFound('Page id %s doesn\'t exit' % str(page_int))
     if p.page_range != []:
-        rmtext = "Read more..."
+        readmoretext = 'read'
     return render(request, 'popular_template.html', {
         'paginator': p,
-        'page': page,
-        'rm': rmtext
+        'page': page
+        'rm': readmoretext   
     })
 def question(request, id):
     try:
