@@ -14,31 +14,7 @@ def test(request, *args, **kwargs):
 def new(request):
     qs = Question.objects.new()
     limit = 10
-    global page_int
-    try:
-        page_int = int(request.GET.get('page'))
-    except:
-        page_int = 1
-    p = Paginator(qs, limit)
-    p.baseurl = '/question/'
-    try:
-        page = p.page(page_int)
-    except EmptyPage:
-        return HttpResponseNotFound('Page id %s doesn\'t exit' % str(page_int))
-    return render(request, 'pagination_template.html', {
-        'paginator': p,
-        'page': page
-    })
-
-
-def popular(request):
-    qs = Question.objects.popular()
-    limit = 10
-    paging = 1
-    try:
-        paging = int(request.GET.get('page'))
-    except:
-        paging = 1
+    paging = request.GET.get('page', 1)
     p = Paginator(qs, limit)
     p.baseurl = '/question/'
     try:
@@ -47,16 +23,31 @@ def popular(request):
         return HttpResponseNotFound('Page id %s doesn\'t exit' % str(paging))
     return render(request, 'pagination_template.html', {
         'paginator': p,
-        'page': page
+        'page': page,
+        'objects': page.object_list[:]
+    })
+
+
+def popular(request):
+    qs = Question.objects.popular()
+    limit = 10
+    paging = request.GET.get('page', 1)
+    p = Paginator(qs, limit)
+    p.baseurl = '/question/'
+    try:
+        page = p.page(paging)
+    except EmptyPage:
+        return HttpResponseNotFound('Page id %s doesn\'t exit' % str(paging))
+    return render(request, 'pagination_template.html', {
+        'paginator': p,
+        'page': page,
+        'objects': page.object_list[:]
     })
 
 
 def question(request, idem):
-    try:
-        quest = Question.objects.all()[int(idem)]
-    except TypeError:
-        return HttpResponseNotFound('')
-    answers = Answer.objects.filter(question=idem)
+    quest = get_object_or_404(Question, id=idem)
+    answers = Answer.objects.get(question=quest)
     return render(request, "question_template.html", {
         'question': quest,
         'answers': answers[:]

@@ -1,4 +1,4 @@
-{% for p  in page.object_list %}
+{% for p  in objects %}
     <h2>{{ p.title }}</h2>
     <a href="{{ paginator.baseurl }}{{ p.id }}">Read more...</a>
 {% endfor %}
