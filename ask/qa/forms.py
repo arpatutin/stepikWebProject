@@ -16,9 +16,7 @@ class AskForm(forms.Form):
 
 class AnswerForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea)
-
-    def add_question(self, quest):
-        self.cleaned_data["question"] = quest
+    question = forms.ModelChoiceField(queryset=Question.objects.all())
 
     def save(self):
         answer = Answer(**self.cleaned_data)

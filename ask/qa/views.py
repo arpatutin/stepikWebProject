@@ -55,15 +55,16 @@ def question(request, idem):
         except:
             answers = []
         url = request.path
+        form = AnswerForm()
         return render(request, "question_template.html", {
             'question': quest,
             'answers': answers[:],
-            'url': url
+            'url': url,
+            'form': form
         })
     else:
         form = AnswerForm(request.POST)
         if form.is_valid():
-            form.add_question(quest=quest)
             form.save()
             return HttpResponseRedirect(request.path)
 

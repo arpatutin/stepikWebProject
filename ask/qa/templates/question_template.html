@@ -10,7 +10,7 @@
 <div>
     <form method="post" action="{{ url }}">
         {% csrf_token %}
-        <textarea name="text"></textarea>
-        <input type="submit">
+        {{ form.as_p }}
+        <button type="submit">Ответить</button>
     </form>
 </div>
