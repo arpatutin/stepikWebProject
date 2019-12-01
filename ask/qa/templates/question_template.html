@@ -5,3 +5,12 @@
 <h6>{{ answer.added_at }}</h6>
 <h4>{{ answer.author }}</h4>
 {% endfor %}
+
+<!-- answer form -->
+<div>
+    <form method="post" action="{{ url }}">
+        {% csrf_token %}
+        <textarea name="text"></textarea>
+        <input type="submit">
+    </form>
+</div>

@@ -22,8 +22,8 @@ urlpatterns = [
     url(r'^$', views.new),
     url(r'^login/', views.test),
     url(r'^signup/', views.test),
-    url(r'^question/(?P<id>\d+)', views.question),
-    url(r'^ask/', views.test),
+    url(r'^question/(?P<idem>\d+)', views.question),
+    url(r'^ask/', views.ask),
     url(r'^popular/', views.popular),
     url(r'^new/', views.new)
 ]

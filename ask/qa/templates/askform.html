@@ -1,0 +1,8 @@
+<form method="post" action="/ask/">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <textarea name="text"></textarea>
+    <input type="submit" value="Задать вопрос">
+</form>
+
+{% csrf_token %}
